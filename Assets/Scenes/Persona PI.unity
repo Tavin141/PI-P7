@@ -5019,12 +5019,12 @@ PrefabInstance:
     - target: {fileID: 2248180236370159014, guid: 1f92fe6ec46176d47b39c490b462cecb,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 44.6
+      value: 44.346
       objectReference: {fileID: 0}
     - target: {fileID: 2248180236370159014, guid: 1f92fe6ec46176d47b39c490b462cecb,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.87032
+      value: 0.758
       objectReference: {fileID: 0}
     - target: {fileID: 2248180236370159014, guid: 1f92fe6ec46176d47b39c490b462cecb,
         type: 3}
@@ -5120,18 +5120,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1626537960}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1718814841
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1718814840}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3317e135e3eec747be879b51d476b9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &1718814842
 BoxCollider2D:
   m_ObjectHideFlags: 0

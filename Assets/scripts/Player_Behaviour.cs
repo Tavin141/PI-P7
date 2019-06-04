@@ -68,10 +68,9 @@ public class Player_Behaviour : MonoBehaviour
         {
             vida = 5;
         }
-
-        if (vida_perdida5.morto)
+        else if (vida_perdida5.morto)
         {
-            morte();
+            StartCoroutine("morte");
             velocidade = 0;
             forcaPulo = 0;
         }
@@ -164,13 +163,10 @@ public class Player_Behaviour : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
 
     {
-        if (collision.tag == "cristal")
-        {
-            pontos++;
-        }
+    
 
         if (collision.tag == "dano")
         {
@@ -192,45 +188,12 @@ public class Player_Behaviour : MonoBehaviour
         }
 
     }
-
-
-
-
-
-
-
-
     private IEnumerator imunidade()
     {
-
         sprite.enabled = false;
         yield return new WaitForSeconds(0.1f);
         sprite.enabled = true;
         yield return new WaitForSeconds(0.1f);
-        sprite.enabled = false;
-        yield return new WaitForSeconds(0.1f);
-        sprite.enabled = true;
-        yield return new WaitForSeconds(0.1f);
-        sprite.enabled = false;
-        yield return new WaitForSeconds(0.1f);
-        sprite.enabled = true;
-        yield return new WaitForSeconds(0.1f);
-        sprite.enabled = false;
-        yield return new WaitForSeconds(0.1f);
-        sprite.enabled = true;
-        yield return new WaitForSeconds(0.1f);
-        sprite.enabled = false;
-        yield return new WaitForSeconds(0.1f);
-        sprite.enabled = true;
-        yield return new WaitForSeconds(0.1f);
-
-
-
-
-
-
-
-
     }
 
     private IEnumerator morte()
@@ -239,44 +202,7 @@ public class Player_Behaviour : MonoBehaviour
         sprite.enabled = false;
         yield return new WaitForSeconds(0.1f);
         sprite.enabled = true;
-        yield return new WaitForSeconds(0.1f);
-        sprite.enabled = false;
         yield return new WaitForSeconds(0.2f);
-        sprite.enabled = true;
-        yield return new WaitForSeconds(0.2f);
-        sprite.enabled = false;
-        yield return new WaitForSeconds(0.1f);
-        sprite.enabled = true;
-        yield return new WaitForSeconds(0.1f);
-        sprite.enabled = false;
-        yield return new WaitForSeconds(0.2f);
-        sprite.enabled = true;
-        yield return new WaitForSeconds(0.2f);
-        sprite.enabled = false;
-        yield return new WaitForSeconds(0.1f);
-        sprite.enabled = true;
-        yield return new WaitForSeconds(0.1f);
-        sprite.enabled = false;
-        yield return new WaitForSeconds(0.2f);
-        sprite.enabled = true;
-        yield return new WaitForSeconds(0.2f);
-        sprite.enabled = false;
-        yield return new WaitForSeconds(0.1f);
-        sprite.enabled = true;
-        yield return new WaitForSeconds(0.1f);
-        sprite.enabled = false;
-        yield return new WaitForSeconds(0.2f);
-        sprite.enabled = true;
-        yield return new WaitForSeconds(0.2f);
-
-
-
-
-
-
-
-
-
     }
 
 

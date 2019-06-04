@@ -37,7 +37,7 @@ public class cura : MonoBehaviour
 
                 vidaGain = true;
 
-
+                Destroy(gameObject);
             }
         }
 
