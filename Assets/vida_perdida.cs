@@ -50,6 +50,13 @@ public class vida_perdida : MonoBehaviour
 
 
         }
+        if (Checkpoint.check == true && Player_Behaviour.vida == 5)
+        {
+
+            sprite.enabled = true;
+
+
+        }
 
 
     }
