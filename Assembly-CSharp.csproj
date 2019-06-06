@@ -56,6 +56,8 @@
      <Compile Include="Assets\Checkpoint.cs" />
      <Compile Include="Assets\cura.cs" />
      <Compile Include="Assets\descidaC.cs" />
+     <Compile Include="Assets\MenuInicial.cs" />
+     <Compile Include="Assets\NewBehaviourScript.cs" />
      <Compile Include="Assets\Pause.cs" />
      <Compile Include="Assets\pontos.cs" />
      <Compile Include="Assets\sc.cs" />
