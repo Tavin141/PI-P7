@@ -83,12 +83,17 @@ public class Player_Behaviour : MonoBehaviour
 
             estaAndando = Mathf.Abs(axis) > 0f;
 
-            if (axis > 0f && !viradoParaDireita && Time.time == 1)
+            if (axis > 0f && !viradoParaDireita && Time.timeScale == 1 )
+            {
                 flip();
+            }
 
-            else if (axis < 0f && viradoParaDireita && Time.time == 1)
+            else if (axis < 0f && viradoParaDireita && Time.timeScale == 1 )
+            {
+             flip();
+            }
 
-                flip();
+      
 
 
 
