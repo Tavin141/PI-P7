@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Persona PI.unity
+- path: Assets/Scenes/Menuinicial.unity
   isLoaded: 1
   isActive: 1
