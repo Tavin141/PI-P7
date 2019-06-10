@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player_Behaviour : MonoBehaviour
 {
@@ -60,6 +61,10 @@ public class Player_Behaviour : MonoBehaviour
 
     void Update()
     {
+        if(vida <= 0)
+        {
+            morrendo();
+        }
 
         estaNoChao = Physics2D.OverlapCircle(verificaChao.position, raioVchao, solido);
         estaNaParede = Physics2D.OverlapCircle(verificaParede.position, raioVp, solido);
@@ -282,6 +287,10 @@ public class Player_Behaviour : MonoBehaviour
 
 
 
+    }
+    public void morrendo()
+    {
+       SceneManager.LoadScene("Game Over"); 
     }
 
 
