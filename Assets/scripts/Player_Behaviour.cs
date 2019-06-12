@@ -57,6 +57,7 @@ public class Player_Behaviour : MonoBehaviour
         estaVivo = true;
         viradoParaDireita = true;
         vida = 5;
+        pontos = 0;
     }
 
     void Update()
@@ -205,6 +206,14 @@ public class Player_Behaviour : MonoBehaviour
 
         }
 
+        if(collision.tag == "agua")
+        {
+         
+            SceneManager.LoadScene("Game Over"); 
+            
+
+        }
+
     }
 
 
@@ -296,6 +305,8 @@ public class Player_Behaviour : MonoBehaviour
     {
        SceneManager.LoadScene("Game Over"); 
     }
+
+   
 
 
 }
