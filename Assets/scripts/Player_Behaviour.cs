@@ -77,8 +77,7 @@ public class Player_Behaviour : MonoBehaviour
         if (vida_perdida5.morto)
         {
             morte();
-            velocidade = 0;
-            forcaPulo = 0;
+           
         }
 
         if (estaVivo)
@@ -193,10 +192,15 @@ public class Player_Behaviour : MonoBehaviour
 
             vida--;
 
+
             vida_perdida.vidaLost = true;
+
+            GetComponent<AudioSource>().Play();
+
 
             Checkpoint.check = false;
 
+            
 
 
         }

@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: cc88425548a6939448350088666a6bf5
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Beech
+  fontNames:
+  - Beech
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 565b5d534183cfb48b33716eddd7c059, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
