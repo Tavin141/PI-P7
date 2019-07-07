@@ -13,6 +13,7 @@ public class Player_Behaviour : MonoBehaviour
     private Transform tr;
     private Animator an;
     public SpriteRenderer sprite;
+    public SpriteRenderer foguinho;
 
     public Transform verificaChao;
     public Transform verificaParede;
@@ -24,6 +25,7 @@ public class Player_Behaviour : MonoBehaviour
     private bool estaVivo;
     private bool viradoParaDireita;
     private bool vidaGain = false;
+    private bool planar;
 
     public static bool on;
     public static int vida;
@@ -172,6 +174,8 @@ public class Player_Behaviour : MonoBehaviour
         an.SetFloat("VelVertical", rb.velocity.y);
         an.SetBool("Atacando", (estaNoChao && estaAndando));
 
+      
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -188,6 +192,7 @@ public class Player_Behaviour : MonoBehaviour
             imunidade();
 
             StartCoroutine(imunidade());
+            StartCoroutine(Temporizador());
 
             on = true;
 
@@ -248,9 +253,40 @@ public class Player_Behaviour : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
 
 
+       
 
 
 
+
+
+
+
+
+    }
+
+    private IEnumerator Temporizador()
+    {
+
+        foguinho.enabled = false;
+        yield return new WaitForSeconds(0.1f);
+        foguinho.enabled = true;
+        yield return new WaitForSeconds(0.1f);
+        foguinho.enabled = false;
+        yield return new WaitForSeconds(0.1f);
+        foguinho.enabled = true;
+        yield return new WaitForSeconds(0.1f);
+        foguinho.enabled = false;
+        yield return new WaitForSeconds(0.1f);
+        foguinho.enabled = true;
+        yield return new WaitForSeconds(0.1f);
+        foguinho.enabled = false;
+        yield return new WaitForSeconds(0.1f);
+        foguinho.enabled = true;
+        yield return new WaitForSeconds(0.1f);
+        foguinho.enabled = false;
+        yield return new WaitForSeconds(0.1f);
+        foguinho.enabled = true;
+        yield return new WaitForSeconds(0.1f);
 
 
 
