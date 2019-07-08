@@ -566,7 +566,7 @@ PlayerSettings:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
   cloudServicesEnabled:
-    Build: 1
+    Build: 0
     Collab: 1
     UNet: 1
   luminIcon:
@@ -588,10 +588,10 @@ PlayerSettings:
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
   apiCompatibilityLevel: 6
-  cloudProjectId: f7beb449-d8da-4165-9787-98b8ade41a97
+  cloudProjectId: 69d0abe4-d3e0-40b0-89b5-34e5049ab5e9
   framebufferDepthMemorylessMode: 0
-  projectName: Jojo
-  organizationId: otaviogabriel479
+  projectName: Jojo (1)
+  organizationId: otaviogabriel71
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0

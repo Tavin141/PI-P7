@@ -26,6 +26,8 @@ TextureImporter:
     21300042: Persona Jump_21
     21300044: Persona Jump_22
     21300046: Persona Jump_23
+    21300048: Persona Jump 1_0
+    21300050: Persona Jump 1_1
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -254,9 +256,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 807
-        y: 0
+        y: 15
         width: 19
-        height: 25
+        height: 10
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -274,9 +276,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 844
-        y: 0
+        y: 19
         width: 20
-        height: 29
+        height: 10
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -285,6 +287,46 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: bd24393304623814f9f7e1dff738594e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Persona Jump 1_0
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 42
+        width: 19
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d00005700df25f34e8bcbb3b5f9a52ab
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Persona Jump 1_1
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 41
+        width: 19
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb217f275a3625341a7ab1ac2456dba7
       vertices: []
       indices: 
       edges: []

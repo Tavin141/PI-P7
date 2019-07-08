@@ -20,12 +20,14 @@ public class Player_Behaviour : MonoBehaviour
 
     private bool estaAndando;
     public bool estaPulando;
-    private bool estaNoChao;
+    public bool estaNoChao;
     private bool estaNaParede;
     private bool estaVivo;
     private bool viradoParaDireita;
     private bool vidaGain = false;
     private bool planar;
+    
+
 
     public static bool on;
     public static int vida;
@@ -211,10 +213,10 @@ public class Player_Behaviour : MonoBehaviour
 
         }
 
-        if(collision.tag == "agua")
+        if(collision.tag == "Agua")
         {
-         
-            SceneManager.LoadScene("Game Over"); 
+
+            estaPulando = true;
             
 
         }
