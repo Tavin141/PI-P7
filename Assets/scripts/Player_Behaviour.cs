@@ -26,7 +26,8 @@ public class Player_Behaviour : MonoBehaviour
     private bool viradoParaDireita;
     private bool vidaGain = false;
     private bool planar;
-    
+    public int teste;
+    private bool primeiroHit;
 
 
     public static bool on;
@@ -102,7 +103,10 @@ public class Player_Behaviour : MonoBehaviour
              flip();
             }
 
-      
+            if (estaNoChao)
+            {
+                primeiroHit = true;
+            }
 
 
 
@@ -133,6 +137,11 @@ public class Player_Behaviour : MonoBehaviour
                 estaVivo = false;
 
             }
+            if (estaNoChao)
+            {
+                teste = 0;
+            }
+          
 
 
 
@@ -213,16 +222,65 @@ public class Player_Behaviour : MonoBehaviour
 
         }
 
-        if(collision.tag == "Agua")
+        if (collision.tag == "Agua" && primeiroHit)
         {
 
-            estaPulando = true;
-            
+            if (vida == 5)
+            {
 
+
+                vida--;
+                on = true;
+                Checkpoint.check = false;
+                primeiroHit = false;
+                estaPulando = true;
+
+                GetComponent<AudioSource>().Play();
+            }
+
+                estaPulando = true;
+                imunidade();
+                StartCoroutine(imunidade());
+                StartCoroutine(Temporizador());
         }
 
     }
 
+    void OnTriggerStay2D(Collider2D collision)
+    { 
+
+        if (collision.tag == "Agua")
+        {
+
+
+           
+
+            on = true;
+            teste ++;
+
+                                    
+            if (teste == 140 )
+            {
+                teste = 0;
+                vida--;
+                imunidade();
+                StartCoroutine(imunidade());
+                StartCoroutine(Temporizador());
+
+                
+            }
+              
+
+
+            vida_perdida.vidaLost = true;
+
+            GetComponent<AudioSource>().Play();
+
+
+            Checkpoint.check = false;
+        }
+
+    }
 
 
 
