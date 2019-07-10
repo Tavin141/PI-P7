@@ -2923,7 +2923,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 78.7, y: -21.7, z: -1}
+  m_LocalPosition: {x: 78.7, y: -21.61, z: -1}
   m_LocalScale: {x: 0.95, y: 0.98825896, z: 0.98825896}
   m_Children:
   - {fileID: 1121042221}
@@ -11134,7 +11134,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1939710652}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 79.2, y: -23.1, z: 0}
+  m_LocalPosition: {x: 45.29, y: 0.85, z: 0}
   m_LocalScale: {x: 2.846082, y: 2.846082, z: 2.846082}
   m_Children:
   - {fileID: 1389302530}
@@ -11164,6 +11164,7 @@ MonoBehaviour:
   verificaParede: {fileID: 1886421322}
   estaPulando: 0
   estaNoChao: 0
+  teste: 0
   velocidade: 5
   forcaPulo: 950
   raioVchao: 0.5

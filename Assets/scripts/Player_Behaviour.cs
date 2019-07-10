@@ -29,7 +29,6 @@ public class Player_Behaviour : MonoBehaviour
     public int teste;
     private bool primeiroHit;
 
-
     public static bool on;
     public static int vida;
     public static int pontos;
@@ -40,20 +39,11 @@ public class Player_Behaviour : MonoBehaviour
     public float raioVp;
     public bool ivuneravel = false;
 
-
-
     public float doubleJump;
 
     public LayerMask solido;
 
-
-
-
-
-    // Start is called before the first frame update
-
     void Start()
-
     {
         rb = GetComponent<Rigidbody2D>();
         tr = GetComponent<Transform>();
@@ -71,226 +61,160 @@ public class Player_Behaviour : MonoBehaviour
         {
             morrendo();
         }
-
         estaNoChao = Physics2D.OverlapCircle(verificaChao.position, raioVchao, solido);
         estaNaParede = Physics2D.OverlapCircle(verificaParede.position, raioVp, solido);
-
-        if (vida >= 5)
+        if(vida >= 5)
         {
             vida = 5;
         }
-
-        if (vida_perdida5.morto)
+        if(vida_perdida5.morto)
         {
-            morte();
-           
+            morte();           
         }
-
-        if (estaVivo)
+        if(estaVivo)
         {
-
             axis = Input.GetAxisRaw("Horizontal");
-
             estaAndando = Mathf.Abs(axis) > 0f;
-
-            if (axis > 0f && !viradoParaDireita && Time.timeScale == 1 )
+            if(axis > 0f && !viradoParaDireita && Time.timeScale == 1 )
             {
                 flip();
             }
-
-            else if (axis < 0f && viradoParaDireita && Time.timeScale == 1 )
+            else if(axis < 0f && viradoParaDireita && Time.timeScale == 1 )
             {
              flip();
             }
-
-            if (estaNoChao)
+            if(estaNoChao)
             {
                 primeiroHit = true;
             }
-
-
-
-
-            if (Input.GetButtonDown("Jump") && estaNoChao)
+            if(Input.GetButtonDown("Jump") && estaNoChao)
             {
                 rb.AddForce(tr.up * forcaPulo);
-
                 estaPulando = true;
-
                 estaNoChao = false;
-
             }
-
-            else if (Input.GetButtonDown("Jump") && estaPulando)
+            else if(Input.GetButtonDown("Jump") && estaPulando)
             {
                 rb.velocity = new Vector2(rb.velocity.x, 0f);
                 rb.AddForce(tr.up * forcaPulo);
-
-
                 estaPulando = false;
-
             }
-
-            if (vida == 0)
-
+            if(vida == 0)
             {
                 estaVivo = false;
-
             }
-            if (estaNoChao)
+            if(estaNoChao)
             {
                 teste = 0;
-            }
-          
-
-
-
+            }   
             Animations();
         }
 
     }
     void FixedUpdate()
     {
-
-
-        if (estaAndando && !estaNaParede)
+        if(estaAndando && !estaNaParede)
         {
-
-
-            if (viradoParaDireita)
+            if(viradoParaDireita)
+            { 
                 rb.velocity = new Vector2(velocidade, rb.velocity.y);
+            }
             else
+            { 
                 rb.velocity = new Vector2(-velocidade, rb.velocity.y);
-
-
+            }
         }
-
-
     }
 
     void flip()
     {
         viradoParaDireita = !viradoParaDireita;
-
         tr.localScale = new Vector2(-tr.localScale.x, tr.localScale.y);
-
-
     }
 
     void Animations()
-
     {
         an.SetBool("Andando", (estaNoChao && estaAndando));
         an.SetBool("Pulando", !estaNoChao);
         an.SetFloat("VelVertical", rb.velocity.y);
-        an.SetBool("Atacando", (estaNoChao && estaAndando));
-
-      
-
+        //an.SetBool("Atacando", (estaNoChao && estaAndando));
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
-
     {
+        teste = 0;
         if (collision.tag == "cristal")
         {
             pontos++;
         }
-
-        if (collision.tag == "dano")
+        if(collision.tag == "dano")
         {
-
-            imunidade();
-
-            StartCoroutine(imunidade());
-            StartCoroutine(Temporizador());
-
+            StartCoroutine("IntervaloDeDano");
+            //StartCoroutine("imunidade");
+            //StartCoroutine("Temporizador");
             on = true;
-
-            vida--;
-
-
+            //vida--;
             vida_perdida.vidaLost = true;
-
-            GetComponent<AudioSource>().Play();
-
-
+            //GetComponent<AudioSource>().Play();
             Checkpoint.check = false;
-
-            
-
-
         }
-
-        if (collision.tag == "Agua" && primeiroHit)
+        if(collision.tag == "Agua" && primeiroHit)
         {
-
-            if (vida == 5)
+            if(vida == 5)
             {
-
-
                 vida--;
                 on = true;
                 Checkpoint.check = false;
                 primeiroHit = false;
-                estaPulando = true;
-
-                GetComponent<AudioSource>().Play();
+                //GetComponent<AudioSource>().Play();
             }
-
-                estaPulando = true;
-                imunidade();
-                StartCoroutine(imunidade());
-                StartCoroutine(Temporizador());
+            estaPulando = true;
+            StartCoroutine("imunidade");
+            StartCoroutine("Temporizador");
         }
-
     }
-
-    void OnTriggerStay2D(Collider2D collision)
-    { 
-
-        if (collision.tag == "Agua")
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.tag == "dano")
         {
-
-
-           
-
+            StopCoroutine("IntervaloDeDano");
+        }
+    }
+    void OnTriggerStay2D(Collider2D collision)
+    {
+        if(collision.tag == "Agua")
+        {
             on = true;
-            teste ++;
-
-                                    
-            if (teste == 140 )
+            teste++;
+            if(teste == 140)
             {
                 teste = 0;
                 vida--;
-                imunidade();
-                StartCoroutine(imunidade());
-                StartCoroutine(Temporizador());
-
-                
+                StartCoroutine("imunidade");
+                StartCoroutine("Temporizador");
             }
-              
-
-
             vida_perdida.vidaLost = true;
-
-            GetComponent<AudioSource>().Play();
-
-
+            //GetComponent<AudioSource>().Play();
             Checkpoint.check = false;
         }
-
     }
 
-
-
-
-
-
+    private IEnumerator IntervaloDeDano()
+    {
+        vida--;
+        StartCoroutine("imunidade");
+        StartCoroutine("Temporizador");
+        while (true)
+        {
+            yield return new WaitForSeconds(1.5f);
+            vida--;
+            StartCoroutine("imunidade");
+            StartCoroutine("Temporizador");
+        }
+    }
 
     private IEnumerator imunidade()
     {
-
         sprite.enabled = false;
         yield return new WaitForSeconds(0.1f);
         sprite.enabled = true;
@@ -311,22 +235,10 @@ public class Player_Behaviour : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         sprite.enabled = true;
         yield return new WaitForSeconds(0.1f);
-
-
-       
-
-
-
-
-
-
-
-
     }
 
     private IEnumerator Temporizador()
     {
-
         foguinho.enabled = false;
         yield return new WaitForSeconds(0.1f);
         foguinho.enabled = true;
@@ -347,14 +259,10 @@ public class Player_Behaviour : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         foguinho.enabled = true;
         yield return new WaitForSeconds(0.1f);
-
-
-
     }
 
     private IEnumerator morte()
     {
-
         sprite.enabled = false;
         yield return new WaitForSeconds(0.1f);
         sprite.enabled = true;
@@ -387,24 +295,11 @@ public class Player_Behaviour : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         sprite.enabled = true;
         yield return new WaitForSeconds(0.2f);
-
-
-
-
-
-
-
-
-
     }
     public void morrendo()
     {
        SceneManager.LoadScene("Game Over"); 
     }
-
-   
-
-
 }
 
 
