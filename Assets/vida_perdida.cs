@@ -15,52 +15,28 @@ public class vida_perdida : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Player_Behaviour.vida <= 4 && vidaLost)
+        if(Player_Behaviour.vida <= 4 && vidaLost)
         {
-
-
             sprite.enabled = false;
-
-
-           
-
         }
-
-
-        if (Player_Behaviour.vida == 4 && cura.vidaGain == true)
+        if(Player_Behaviour.vida == 4 && cura.vidaGain == true)
         {
-
-
             sprite.enabled = true;
-
-
             Player_Behaviour.vida = 5;
-
             cura.vidaGain = false;
-
-
-
             Debug.Log("deu certo");
-
-
         }
-        if (Checkpoint.check == true && Player_Behaviour.vida == 5)
+        if(Player_Behaviour.restore == true && Player_Behaviour.vida == 5)
         {
-
             sprite.enabled = true;
-
-
         }
-
-
     }
-
 }
 
 

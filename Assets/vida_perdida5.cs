@@ -20,20 +20,12 @@ public class vida_perdida5 : MonoBehaviour
     {
         if (Player_Behaviour.vida <= 0 )
         {
-
-
             sprite.enabled = false;
-
             morto = true;
-        
-
         }
-        if (Checkpoint.check == true && Player_Behaviour.vida == 5)
+        if(Player_Behaviour.restore == true && Player_Behaviour.vida == 5)
         {
-
             sprite.enabled = true;
-
-
         }
     }
 }

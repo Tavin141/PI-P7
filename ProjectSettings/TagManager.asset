@@ -9,6 +9,7 @@ TagManager:
   - dano
   - cura
   - Agua
+  - CheckPoint
   layers:
   - Default
   - TransparentFX

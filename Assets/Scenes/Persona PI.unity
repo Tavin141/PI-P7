@@ -5246,10 +5246,9 @@ GameObject:
   m_Component:
   - component: {fileID: 916292971}
   - component: {fileID: 916292973}
-  - component: {fileID: 916292972}
   m_Layer: 0
   m_Name: Checkpoint
-  m_TagString: Untagged
+  m_TagString: CheckPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5268,19 +5267,6 @@ Transform:
   m_Father: {fileID: 334033280}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &916292972
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 916292970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: baa75ea336ca9c54c9517efc2f3ff10e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprite: {fileID: 2131264081}
 --- !u!61 &916292973
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8947,7 +8933,6 @@ GameObject:
   - component: {fileID: 1454195078}
   - component: {fileID: 1454195081}
   - component: {fileID: 1454195080}
-  - component: {fileID: 1454195079}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -8974,19 +8959,6 @@ RectTransform:
   m_AnchoredPosition: {x: 447, y: 257}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1454195079
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1454195077}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4234396ce4834914cb2e32d4426baa23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  score: {fileID: 1454195080}
 --- !u!114 &1454195080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11134,7 +11106,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1939710652}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 45.29, y: 0.85, z: 0}
+  m_LocalPosition: {x: -0.929, y: 1.13, z: 0}
   m_LocalScale: {x: 2.846082, y: 2.846082, z: 2.846082}
   m_Children:
   - {fileID: 1389302530}
@@ -11165,6 +11137,8 @@ MonoBehaviour:
   estaPulando: 0
   estaNoChao: 0
   teste: 0
+  pontos: 0
+  score: {fileID: 1454195080}
   velocidade: 5
   forcaPulo: 950
   raioVchao: 0.5
@@ -11174,6 +11148,7 @@ MonoBehaviour:
   solido:
     serializedVersion: 2
     m_Bits: 256
+  checkPoint: {fileID: 2131264081}
 --- !u!1 &1960125906 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2947174305256957820, guid: c87967f0fc86ceb4a927d3e3b627265f,

@@ -31,7 +31,8 @@ public class Player_Behaviour : MonoBehaviour
 
     public static bool on;
     public static int vida;
-    public static int pontos;
+    public int pontos;
+    public Text score;
     private float axis;
     public float velocidade;
     public float forcaPulo;
@@ -43,20 +44,44 @@ public class Player_Behaviour : MonoBehaviour
 
     public LayerMask solido;
 
+    public SpriteRenderer checkPoint;
+    private static bool check;
+    public static bool restore;
+    private static List<string> pegos = new List<string>();
+    private static List<string> pastCp = new List<string>();
+    private GameObject toDestroy;
+
     void Start()
     {
+        
+        if(check)
+        {
+            pontos = 0;
+            checkPoint.enabled = false;
+            transform.position = new Vector3(92.98f, -7.95f);
+            foreach(string a in pastCp)
+            {
+                Destroy(GameObject.Find(a));
+                pontos++;
+            }
+        }
         rb = GetComponent<Rigidbody2D>();
         tr = GetComponent<Transform>();
         an = GetComponent<Animator>();
 
         estaVivo = true;
         viradoParaDireita = true;
-        vida = 5;
-        pontos = 0;
+        vida = 5;        
     }
 
     void Update()
     {
+        score.text = pontos.ToString();
+        //print(check);
+        if(Input.GetKeyDown(KeyCode.T))
+        {
+            SceneManager.LoadScene("Persona PI"); 
+        }
         if(vida <= 0)
         {
             morrendo();
@@ -125,7 +150,6 @@ public class Player_Behaviour : MonoBehaviour
             }
         }
     }
-
     void flip()
     {
         viradoParaDireita = !viradoParaDireita;
@@ -145,9 +169,10 @@ public class Player_Behaviour : MonoBehaviour
         teste = 0;
         if (collision.tag == "cristal")
         {
+            pegos.Add(collision.name);
             pontos++;
         }
-        if(collision.tag == "dano")
+        else if(collision.tag == "dano")
         {
             StartCoroutine("IntervaloDeDano");
             //StartCoroutine("imunidade");
@@ -156,21 +181,31 @@ public class Player_Behaviour : MonoBehaviour
             //vida--;
             vida_perdida.vidaLost = true;
             //GetComponent<AudioSource>().Play();
-            Checkpoint.check = false;
         }
-        if(collision.tag == "Agua" && primeiroHit)
+        else if(collision.tag == "Agua" && primeiroHit)
         {
             if(vida == 5)
             {
                 vida--;
                 on = true;
-                Checkpoint.check = false;
                 primeiroHit = false;
                 //GetComponent<AudioSource>().Play();
             }
             estaPulando = true;
             StartCoroutine("imunidade");
             StartCoroutine("Temporizador");
+        }
+        else if(collision.tag == "CheckPoint")
+        {
+            if(!check)
+            {
+                pastCp.AddRange(pegos);
+                vida = 5;
+                restore = true;
+                check = true;
+                checkPoint.enabled = false;
+            }
+            print("cu");            
         }
     }
     void OnTriggerExit2D(Collider2D collision)
@@ -195,7 +230,6 @@ public class Player_Behaviour : MonoBehaviour
             }
             vida_perdida.vidaLost = true;
             //GetComponent<AudioSource>().Play();
-            Checkpoint.check = false;
         }
     }
 
@@ -298,18 +332,6 @@ public class Player_Behaviour : MonoBehaviour
     }
     public void morrendo()
     {
-       SceneManager.LoadScene("Game Over"); 
+       SceneManager.LoadScene("Persona PI"); 
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-

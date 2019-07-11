@@ -20,34 +20,18 @@ public class vida_perdida3 : MonoBehaviour
     {
         if (Player_Behaviour.vida <= 2 && vidaLost)
         {
-
-
             sprite.enabled = false;
-
-
-           
-
         }
         if (Player_Behaviour.vida == 2 && cura.vidaGain == true)
         {
-
-
             sprite.enabled = true;
-
             cura.vidaGain = false;
-
             Player_Behaviour.vida = 3;
-
             Debug.Log("deu certo");
-
-
         }
-        if (Checkpoint.check == true && Player_Behaviour.vida == 5)
+        if(Player_Behaviour.restore == true && Player_Behaviour.vida == 5)
         {
-
             sprite.enabled = true;
-
-
         }
     }
 }
