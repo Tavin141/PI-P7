@@ -44,8 +44,7 @@ public class Player_Behaviour : MonoBehaviour
 
     public LayerMask solido;
 
-    public SpriteRenderer checkPoint;
-    private static bool check;
+    public static bool check;
     public static bool restore;
     private static List<string> pegos = new List<string>();
     private static List<string> pastCp = new List<string>();
@@ -57,7 +56,6 @@ public class Player_Behaviour : MonoBehaviour
         if(check)
         {
             pontos = 0;
-            checkPoint.enabled = false;
             transform.position = new Vector3(92.98f, -7.95f);
             foreach(string a in pastCp)
             {
@@ -203,7 +201,7 @@ public class Player_Behaviour : MonoBehaviour
                 vida = 5;
                 restore = true;
                 check = true;
-                checkPoint.enabled = false;
+               
             }
             print("cu");            
         }
