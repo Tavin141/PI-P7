@@ -48,11 +48,12 @@ public class Player_Behaviour : MonoBehaviour
     public static bool restore;
     private static List<string> pegos = new List<string>();
     private static List<string> pastCp = new List<string>();
+
+
     private GameObject toDestroy;
 
     void Start()
-    {
-        
+    {        
         if(check)
         {
             pontos = 0;
@@ -66,7 +67,6 @@ public class Player_Behaviour : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         tr = GetComponent<Transform>();
         an = GetComponent<Animator>();
-
         estaVivo = true;
         viradoParaDireita = true;
         vida = 5;        
@@ -197,11 +197,11 @@ public class Player_Behaviour : MonoBehaviour
         {
             if(!check)
             {
-                pastCp.AddRange(pegos);
-                vida = 5;
-                restore = true;
-                check = true;
-               
+                collision.transform.GetChild(0).gameObject.SetActive(true);
+                // pastCp.AddRange(pegos);
+                // vida = 5;
+                // restore = true;
+                // check = true;               
             }
             print("cu");            
         }
@@ -211,6 +211,10 @@ public class Player_Behaviour : MonoBehaviour
         if(collision.tag == "dano")
         {
             StopCoroutine("IntervaloDeDano");
+        }
+        else if(collision.tag == "CheckPoint")
+        {
+            collision.transform.GetChild(0).gameObject.SetActive(false);
         }
     }
     void OnTriggerStay2D(Collider2D collision)
@@ -228,6 +232,17 @@ public class Player_Behaviour : MonoBehaviour
             }
             vida_perdida.vidaLost = true;
             //GetComponent<AudioSource>().Play();
+        }
+        else if(collision.tag == "CheckPoint" && !check)
+        {
+            if(Input.GetKeyDown(KeyCode.Q))
+            {
+                pastCp.AddRange(pegos);
+                vida = 5;
+                restore = true;
+                check = true; 
+                collision.transform.GetChild(0).gameObject.SetActive(false);
+            }
         }
     }
 
