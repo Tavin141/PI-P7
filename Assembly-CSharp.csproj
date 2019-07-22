@@ -56,6 +56,9 @@
      <Compile Include="Assets\Menu\MainMenu.cs" />
      <Compile Include="Assets\Menu\Voltar.cs" />
      <Compile Include="Assets\scripts\Cristais\cura.cs" />
+     <Compile Include="Assets\scripts\Diálogos\ativadorD.cs" />
+     <Compile Include="Assets\scripts\Diálogos\dialogos.cs" />
+     <Compile Include="Assets\scripts\Diálogos\dialogoT.cs" />
      <Compile Include="Assets\scripts\inimigo\instaciarTiros.cs" />
      <Compile Include="Assets\scripts\inimigo\perseguicao.cs" />
      <Compile Include="Assets\scripts\inimigo\tirobehaviour.cs" />
