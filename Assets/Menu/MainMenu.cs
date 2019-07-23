@@ -6,10 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-   public void PlayGame()
+    void Update()
     {
-        SceneManager.LoadScene("Persona PI");
+        if(Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Return))
+        {
+            SceneManager.LoadScene("Persona PI");
+        }        
     }
+
     public void Quit()
     {
         Application.Quit();
